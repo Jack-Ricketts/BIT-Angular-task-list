@@ -2,13 +2,9 @@
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">Tasks</div>
-            <div class="card-body">
-                <ul class="list-group" >
-                    <li class="list-group-item" *ngFor="let task of tasks; let i=index">
-                       {{i+1}}. Task: {{ task.task }}, Priority: {{task.priority}} <button class="btn btn-danger float-end" (click)="removeTask(i)">DONE</button>
-                    </li>
-                </ul>
-            </div>
+            <div class="row">
+                <app-task-item *ngFor="let task of tasks; let i=index" class="col-md-4" [task]="task" [index]="i" (afterRemoveTask)="removeTask($event)" ></app-task-item>
+             </div>
         </div>
     </div>
 
