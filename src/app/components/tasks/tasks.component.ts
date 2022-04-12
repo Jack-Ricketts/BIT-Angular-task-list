@@ -18,11 +18,4 @@ export class TasksComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  public addNewTask(task:HTMLInputElement, priority:HTMLSelectElement){
-    if (task.value!=''){
-      this.tasksService.add(task.value, priority.value);
-      task.value='';
-    }
-  }
 }

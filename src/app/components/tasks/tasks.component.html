@@ -1,31 +1,11 @@
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <div class="card">
-            <div class="card-header">Tasks</div>
-            <div class="row">
-                <app-task-item *ngFor="let task of tasks; let i=index" class="col-md-4" [task]="task" [index]="i" ></app-task-item>
-             </div>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-header">Add new task</div>
+            <div class="card-header">Task List</div>
             <div class="card-body">
-                <div class="mb-3">
-                    <label for="" class="form-label">Task: </label>
-                    <input type="text" class="form-control" #newTask >
-                </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Priority: </label>
-                    <select id="priority" class="form-control" #newPriority>
-                        <option value="Urgent">Urgent</option>
-                        <option value="High priority">High priority</option>
-                        <option value="Low priority">Low priority</option>
-                        <option value="Routine">Routine</option>
-                    </select>
-                </div>
-                <button class="btn btn-success" (click)="addNewTask(newTask, newPriority)">Pridėti</button>
+                <div class="row">
+                    <app-task-item *ngFor="let task of tasks; let i=index" class="col-md-4" [task]="task" [index]="i" ></app-task-item>
+                 </div>
             </div>
         </div>
     </div>
