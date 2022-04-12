@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-header">Tasks</div>
             <div class="row">
-                <app-task-item *ngFor="let task of tasks; let i=index" class="col-md-4" [task]="task" [index]="i" (afterRemoveTask)="removeTask($event)" ></app-task-item>
+                <app-task-item *ngFor="let task of tasks; let i=index" class="col-md-4" [task]="task" [index]="i" ></app-task-item>
              </div>
         </div>
     </div>
