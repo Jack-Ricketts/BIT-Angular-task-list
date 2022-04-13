@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Tasks } from '../models/TasksModel';
 
 @Injectable({
@@ -6,6 +6,7 @@ import { Tasks } from '../models/TasksModel';
 })
 export class TasksService {
   public tasks:Tasks[]=[];
+  public onTaskChange=new EventEmitter();
   constructor() { }
 
   public load(){
@@ -20,16 +21,18 @@ export class TasksService {
   }
 
   public add(task:string, priority:string){
-      this.tasks.push({
-        task: task,
-        priority: priority
-      });;
-      this.save();
+    this.tasks.push({
+      task: task,
+      priority: priority
+    });;
+    this.save();
+    this.onTaskChange.emit();
   }
 
   public remove(i:number){
     this.tasks.splice(i, 1);
     this.save();
+    this.onTaskChange.emit();
   }
 
   public get(index:number){
@@ -40,5 +43,19 @@ export class TasksService {
     this.tasks[index].task=task;
     this.tasks[index].priority=priority;
     this.save();
+  }
+
+  public getTaskCount(){
+    return this.tasks.length;
+  }
+
+  public getTaskCountPriority(){
+    let urgent:number=0;
+    this.tasks.forEach(task=>{
+      if(task.priority=='Urgent'){
+        urgent++;
+      }
+    })
+    return urgent;
   }
 }
