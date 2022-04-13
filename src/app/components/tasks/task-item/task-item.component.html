@@ -1,11 +1,9 @@
-
-    <div class="card mb-3">
-        <div class="card-body">
-            <h5>{{index+1}}. {{task.task}}</h5>
-            Priority: {{task.priority}}
-            <hr>
-            <button class="btn btn-danger" (click)="deleteTask()">DONE</button>
-
-        
-        </div>
+<div class="card mb-3">
+    <div class="card-body">
+        <h5>{{index+1}}. {{task.task}}</h5>
+        Priority: {{task.priority}}
+        <hr>
+        <a class="btn btn-success" [routerLink]="['/edit', index]">EDIT</a> &nbsp;
+        <button class="btn btn-danger" (click)="deleteTask()">DONE</button>
     </div>
+</div>

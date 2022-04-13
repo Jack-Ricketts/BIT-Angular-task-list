@@ -1,0 +1,26 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">Edit task</div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="" class="form-label">Task: </label>
+                    <input type="text" class="form-control" [(ngModel)]="task">
+               
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Priority: </label>
+                    <select id="priority" class="form-control" [(ngModel)]="priority">
+                        <option value="Urgent">Urgent</option>
+                        <option value="High priority">High priority</option>
+                        <option value="Low priority">Low priority</option>
+                        <option value="Routine">Routine</option>
+                    </select>
+                </div>
+                <button class="btn btn-success" (click)="update()">Update</button>
+            </div>
+        </div>
+    </div>
+
+</div>

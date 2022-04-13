@@ -10,10 +10,12 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { RouterModule, Routes } from '@angular/router';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskNewComponent } from './components/tasks/task-new/task-new.component';
+import { TaskEditComponent } from './components/tasks/task-edit/task-edit.component';
 
 const taskRoutes:Routes=[
   {path:'', component:TasksComponent},
-  {path:'new', component:TaskNewComponent}
+  {path:'new', component:TaskNewComponent},
+  {path:'edit/:index', component:TaskEditComponent}
 ];
 
 @NgModule({
@@ -22,7 +24,8 @@ const taskRoutes:Routes=[
     TasksComponent,
     TaskItemComponent,
     TaskNewComponent,
-    NavigationComponent
+    NavigationComponent,
+    TaskEditComponent
   ],
   imports: [
     BrowserModule,
