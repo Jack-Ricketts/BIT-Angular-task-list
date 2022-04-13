@@ -8,7 +8,7 @@ import { TasksService } from 'src/app/services/tasks.service';
 })
 export class NavigationComponent implements OnInit {
   public taskCount:number=0;
-  public taskCountUrgent:number=0;
+  public taskCountUrgent:string='';
   constructor(private taskServices:TasksService) { 
     this.taskCountUrgent=this.taskServices.getTaskCountPriority();
     this.taskCount=this.taskServices.getTaskCount();

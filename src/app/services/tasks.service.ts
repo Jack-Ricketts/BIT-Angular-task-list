@@ -51,11 +51,23 @@ export class TasksService {
 
   public getTaskCountPriority(){
     let urgent:number=0;
+    let highPriority:number=0;
+    let lowPriority:number=0;
+    let routine:number=0;
     this.tasks.forEach(task=>{
       if(task.priority=='Urgent'){
         urgent++;
       }
+      if(task.priority=='High priority'){
+        highPriority++;
+      }
+      if(task.priority=='Low priority'){
+        lowPriority++;
+      }
+      if(task.priority=='Routine'){
+        routine++;
+      }
     })
-    return urgent;
+    return `Urgent tasks: ${urgent}, High Priority tasks: ${highPriority}, Low Priority tasks: ${lowPriority}, Routine tasks: ${routine}`
   }
 }
